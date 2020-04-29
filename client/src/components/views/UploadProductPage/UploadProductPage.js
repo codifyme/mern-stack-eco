@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Button, Form, message, Input, Icon } from 'antd';
+import { Typography, Button, message, Icon, Form, Input } from 'antd';
 import FileUpload from '../../utils/FileUpload';
 
 const { Title } = Typography;
