@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Dropzone from 'react-dropzone';
 import {Icon} from 'antd';
 import Axios from 'axios';
-import {response} from 'express';
+// import {response} from 'express';
 
 
 function FileUpload(props) {
@@ -30,6 +30,17 @@ function FileUpload(props) {
             })
     }
 
+    const onDelete=(image)=>{
+        const currentIndex=Images.indexOf(image);
+
+        let newImages=[...Images]
+        newImages.spide(currentIndex,1)
+
+        setImages(newImages)
+
+
+    }
+
     return (
         <div style={{display:'flex', justifyContent:'space-between'}}>
             <Dropzone
@@ -53,7 +64,7 @@ function FileUpload(props) {
                     <div style={{display:'flex', width:'350px', height:'240px', overflowX:'scroll'}}>
                         {Images.map((image, index) => (
                             <div onClick>
-                                <img style={{minWidth:'300px', width:'300px', height:'240px'}} src={`http://localhost:5000${image}`} alt={`productImg-${index}`} />
+                                <img style={{minWidth:'300px', width:'300px', height:'240px'}} src={`http://localhost:5000/${image}`} alt={`productImg-${index}`} />
                         </div>
                         ))}
                     </div>
